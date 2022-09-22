@@ -6,7 +6,7 @@ import { useAxios } from '@vue-composable/axios'
 import { useSchedulesStore } from '@/stores/schedule'
 
 // Componentes
-const GameCard = defineAsyncComponent(() => import('@/components/GameCard.vue'))
+const GameCard = defineAsyncComponent(() => import('@/components/gameCard/GameCard.vue'))
 
 const { exec, loading, result } = useAxios({})
 const { getSchedules: schedules, setSchedules } = useSchedulesStore()
@@ -27,9 +27,10 @@ exec({
 </script>
 
 <template>
-  <article
-    class="schedule-container"
+  <el-space
     v-loading="loading"
+    class="schedule-container"
+    wrap
   >
     <GameCard
       v-for="(schedule, scheduleIndex) in schedules"
@@ -37,17 +38,13 @@ exec({
       :schedule="schedule"
       class="schedule-container__card"
     />
-  </article>
+  </el-space>
 </template>
 
 <style lang="scss" scoped>
 .schedule-container {
   width: 100%;
   height: 100%;
-
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 </style>
