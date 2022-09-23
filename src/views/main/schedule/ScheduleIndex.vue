@@ -27,24 +27,26 @@ exec({
 </script>
 
 <template>
-  <el-space
-    v-loading="loading"
-    class="schedule-container"
-    wrap
+  <section
+      v-loading="loading"
+      class="schedule-container"
   >
     <GameCard
-      v-for="(schedule, scheduleIndex) in schedules"
-      :key="scheduleIndex"
-      :schedule="schedule"
-      class="schedule-container__card"
+        v-for="(schedule, scheduleIndex) in schedules"
+        :key="scheduleIndex"
+        :schedule="schedule"
+        class="schedule-container__card"
     />
-  </el-space>
+  </section>
 </template>
 
 <style lang="scss" scoped>
 .schedule-container {
   width: 100%;
   height: 100%;
-  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5vw;
+  justify-content: space-around;
 }
 </style>

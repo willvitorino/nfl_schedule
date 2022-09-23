@@ -8,11 +8,13 @@
   import { format } from 'date-fns'
   import { ptBR } from 'date-fns/locale'
 
+  import { Calendar } from '@element-plus/icons-vue'
+
   const props = defineProps<{
     schedule: Schedule
   }>()
 
-  const gameDate = computed(() => format(new Date(props.schedule.date), `dd/MM/yyyyy 'às' HH:mm`, { locale: ptBR }))
+  const gameDate = computed(() => format(new Date(props.schedule.date), `dd/MM/yyyy 'às' HH:mm`, { locale: ptBR }))
 </script>
 
 <template>
@@ -24,9 +26,13 @@
       {{ schedule.shortName }}
     </h2>
 
-    <el-tag>
+    <el-button
+      :icon="Calendar"
+      type="info"
+      round
+    >
       {{ gameDate }}
-    </el-tag>
+    </el-button>
   </el-space>
 </template>
 

@@ -6,16 +6,21 @@
 
   // CardHeaderComponent
   const CardHeader = defineAsyncComponent(() => import('./partials/CardHeader.vue'))
+  const CardBody = defineAsyncComponent(() => import('./partials/CardBody.vue'))
 
   defineProps<{ schedule: Schedule }>()
 </script>
 
 <template>
-  <el-card class="game-card">
+  <el-card
+      shadow="hover"
+      class="game-card"
+  >
     <template #header>
       <CardHeader :schedule="schedule" />
     </template>
-    <div></div>
+
+    <CardBody :schedule="schedule" />
   </el-card>
 </template>
 
