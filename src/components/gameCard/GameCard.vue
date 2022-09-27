@@ -27,5 +27,9 @@
 <style lang="scss">
 .game-card {
   flex-grow: 1;
+
+  background-color: var(--vt-c-black-soft);
+  border-color: var(--el-border-color);
+  border-radius: var(--el-border-radius-round);
 }
 </style>

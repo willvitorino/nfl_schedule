@@ -25,6 +25,11 @@
 
   .app-container__header {
     text-align: center;
+
+    h1 {
+      font-weight: bold;
+      font-size: 3rem;
+    }
   }
 }
 </style>
